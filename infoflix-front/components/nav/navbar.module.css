@@ -1,0 +1,26 @@
+.navegacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    list-style-type: none;
+}
+
+.menu li{
+    margin-left: 20px;
+}
+
+.menu a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu a:hover{
+    color: #356B02;
+}

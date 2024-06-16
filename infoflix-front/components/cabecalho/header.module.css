@@ -1,0 +1,12 @@
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    height: 6rem;
+}
+
+.logo{
+    width: 14rem;
+    height: 6rem;
+    margin-left: 25px;
+}

@@ -1,0 +1,10 @@
+.exibicao{
+    display: flex;
+    flex-direction: row;
+}
+
+.filmes img {
+    margin: 150px 5px 5px 5px;
+    width: 80px;
+    height: 110px;
+}

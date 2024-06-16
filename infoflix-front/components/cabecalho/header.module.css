@@ -1,12 +1,62 @@
 .cabecalho{
     display: flex;
-    justify-content: space-between;
-    background-color: grey;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 6rem;
 }
+
 
 .logo{
     width: 14rem;
     height: 6rem;
     margin-left: 25px;
+}
+
+.formPesquisa{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 20rem;
+    background-color: white;
+    border-radius: 30px;
+    margin-top: 8px;
+    
+}
+
+.inputPesquisa {
+    width: 100%;
+    padding: 10px 40px 10px 10px; 
+    border: none; 
+    background-color: transparent; 
+    color: black;
+}
+
+.inputPesquisa:focus {
+    outline: none; /* Remove a borda ao focar */
+}
+
+.buttonPesquisa{
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.buttonMovie{
+    padding: 8px 16px;
+    border: none;
+    background-color: white;
+    color: rgba(174, 172, 172, 0.779);
+    border-radius: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra para efeito de botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+    background-color: transparent; /* Deixar transparente para combinar com o input */
+    border: 1px solid lightgray;
 }

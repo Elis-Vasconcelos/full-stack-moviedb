@@ -28,7 +28,7 @@ export default function Movies() {
     return (
         <>
             <div className={styles.titulo}>
-                <h3>Lançamentos</h3>
+                <h3>LANÇAMENTOS</h3>
             </div>
 
             <div className={styles.exibicao}>

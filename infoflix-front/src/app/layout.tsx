@@ -4,6 +4,7 @@ import "./globals.css";
 import Cabecalho from "../../components/cabecalho/header";
 import Rodape from "../../components/rodape/footer";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,12 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         
-        <div className='components'>
+        <div className="components">
           <header>
             <Cabecalho/>
           </header>
 
-          <div className='children'>{children}</div>
+          <main className="children">{children}</main>
 
           <footer>
             <Rodape/>

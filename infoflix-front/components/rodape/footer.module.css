@@ -1,6 +1,8 @@
 .footer{
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    height: 5rem;
     border-top: 1px solid #333333;   
     padding-top: 20px;
 }
@@ -76,3 +78,4 @@
     justify-content: space-evenly;
     margin-left: 10px;
 }
+

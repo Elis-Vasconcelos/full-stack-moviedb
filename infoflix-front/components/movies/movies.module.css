@@ -1,10 +1,18 @@
-.exibicao{
+.exibicao {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.filmes img {
-    margin: 150px 5px 5px 5px;
-    width: 80px;
-    height: 110px;
+.filmes {
+    flex: 1 1 200px; /* Ajusta a largura mínima das divs dos filmes */
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-top: 80px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Garante que a imagem cubra o espaço da div */
 }

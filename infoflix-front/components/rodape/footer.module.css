@@ -1,0 +1,78 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #333333;   
+    padding-top: 20px;
+}
+
+.filmes{
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+    margin-right: 80px;
+}
+
+.subscribe{
+    margin-right: 60px;
+
+}
+.star h3, .genero h3, .redes h3{
+    color: #356B02;
+    margin-left: 10px;
+    
+}
+
+.subscribe h3, .copy h3, .copy h5{
+    color: #356B02;
+}
+
+.copy h5{
+    margin-left: 10px;
+}
+.movies{
+    margin-left: -15px;
+    list-style-type: none;
+}
+
+.movies li{
+    margin-bottom: 1ch;
+}
+
+.movies a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.movies a:hover{
+    color: #356B02;
+}
+
+.formsins{
+    margin-left: 45px;
+   
+}
+
+.inscricao{
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 11rem;
+    margin-top: 15px;
+    margin-left: 45px;
+}
+
+.inputInscricao{
+    border-radius: 20px;
+    padding: 8px;
+    color: black;
+}
+
+.social{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 10px;
+}

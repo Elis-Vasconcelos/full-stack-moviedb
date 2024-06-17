@@ -26,24 +26,29 @@ export default function Movies() {
     }, []);
 
     return (
-        <div className={styles.exibicao}>
-            <h3>Lançamentos</h3>
-            <>
-            
-            {movieList.map((movie, index) => (
-                <div key={movie.id} className={styles.filmes}>
-                    <Image 
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
-                        alt={movie.title}
-                        width={500} 
-                        height={750} 
-                        layout="responsive"
-                        className={styles.image}
-                        priority={index === 0} // Adiciona prioridade à primeira imagem
-                    />
-                </div>
-            ))}
-            </>
+        <>
+            <div className={styles.titulo}>
+                <h3>Lançamentos</h3>
+            </div>
+
+            <div className={styles.exibicao}>
+                <>
+                
+                {movieList.map((movie, index) => (
+                    <div key={movie.id} className={styles.filmes}>
+                        <Image 
+                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+                            alt={movie.title}
+                            width={500} 
+                            height={750} 
+                            layout="responsive"
+                            className={styles.image}
+                            priority={index === 0} // Adiciona prioridade à primeira imagem
+                        />
+                    </div>
+                ))}
+                </>
         </div>
+        </>    
     );
 }

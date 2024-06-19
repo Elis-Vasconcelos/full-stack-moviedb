@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import style from "./register.module.css";
 
 interface RegisterProps {
   setUserId: (userId: number) => void;
@@ -47,33 +48,42 @@ const Register: React.FC<RegisterProps> = ({ setUserId, setToken }) => {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <div>
-        <label>Nome:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Senha:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Registrar</button>
-    </form>
+    <div className={style.register}>
+      <form onSubmit={handleRegister}>
+        <div>
+          <label className={style.label}>Nome:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+             placeholder="Digite seu nome"
+            className={style.inputRegister}
+          />
+        </div>
+        <div>
+          <label className={style.label}>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Digite seu e-mail"
+            className={style.inputRegister}
+          />
+        </div>
+        <div>
+          <label className={style.label}>Senha:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+             placeholder="Digite sua senha"
+            className={style.inputRegister}
+          />
+        </div>
+        <button className={style.botReg} type="submit">Registrar</button>
+      </form>
+    </div>
+    
   );
 };
 

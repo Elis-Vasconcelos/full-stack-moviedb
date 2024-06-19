@@ -1,0 +1,28 @@
+.botReg{
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-left: 80px; 
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label{
+    margin-right: 10px;
+}
+
+.inputRegister{
+    border-radius: 20px;
+    padding: 3px;
+    color: black;
+    margin-bottom: 10px;
+
+}
+

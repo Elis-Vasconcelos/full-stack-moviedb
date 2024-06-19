@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import style from "./login.module.css";
 
 interface LoginProps {
   setUserId: (userId: number) => void;
@@ -37,25 +38,37 @@ const Login: React.FC<LoginProps> = ({ setUserId, setToken }) => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Senha:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <div className={style.login}>  
+
+      <form className={style.formslog} onSubmit={handleLogin}>
+        <div>
+          <label className={style.label}>Email:</label>
+            <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Digite seu e-mail"
+            className={style.inputLogin}
+            />
+
+          </div>
+
+          <div>
+            <label className={style.label}>Senha:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Digite sua senha"
+              className={style.inputLogin}
+            />
+          </div>
+
+          <button className={style.botLogin} type="submit">Login</button>
+      </form>
+
+    </div>
+    
   );
 };
 

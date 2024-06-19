@@ -5,6 +5,7 @@ import Movies from "../../components/movies/movies";
 import Navbar from "../../components/nav/navbar";
 import Login from "../../components/login/Login";
 import Register from "../../components/register/register";
+import style from "./page.module.css";
 
 export default function Home() {
   const [userId, setUserId] = useState<number | null>(null);
@@ -29,7 +30,7 @@ export default function Home() {
         <Movies userId={userId} token={token!} />
       ) : null}
       {isClient && !userId && (
-        <button onClick={() => setShowRegister(!showRegister)}>
+        <button className={style.register} onClick={() => setShowRegister(!showRegister)}>
           {showRegister ? 'Já tem conta? Login' : "Não tem conta? Registrar"}
         </button>
       )}

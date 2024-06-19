@@ -1,0 +1,9 @@
+.register{
+    margin: 10px 0px 50px 710px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+}

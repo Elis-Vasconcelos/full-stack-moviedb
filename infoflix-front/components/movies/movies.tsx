@@ -5,7 +5,8 @@ import styles from "./movies.module.css";
 export interface Movie {
   id: number;
   title: string;
-  poster_path: string;
+  poster_path: string; // Para movieList
+  posterPath: string;  // Para favoriteMovies
 }
 
 interface MoviesProps {
@@ -42,6 +43,12 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
   };
 
   const addFavoriteMovie = async (movie: Movie) => {
+    // Verifica se o filme já está na lista de favoritos
+    if (favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
+      console.log('Movie already favorited');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:3000/api/favorites', {
         method: 'POST',
@@ -52,12 +59,12 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
         body: JSON.stringify({
           userId,
           title: movie.title,
-          posterPath: movie.poster_path,
+          posterPath: movie.poster_path || movie.posterPath, // Usando o que estiver definido
         }),
       });
       const data = await response.json();
       console.log('Added to favorites:', data);
-      getFavoriteMovies(); // Refresh favorites
+      getFavoriteMovies(); // Atualiza lista de favoritos
     } catch (error) {
       console.error("Error adding favorite movie", error);
     }
@@ -101,7 +108,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
         {favoriteMovies.map((movie, index) => (
           <div key={movie.id} className={styles.filmes}>
             <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
               alt={movie.title}
               width={500}
               height={750}

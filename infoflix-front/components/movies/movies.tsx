@@ -95,7 +95,10 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
               className={styles.image}
               priority={index === 0}
             />
-            <button onClick={() => addFavoriteMovie(movie)}>Favorite</button>
+            <div className={styles.botoes}>
+              <button className={styles.favoritados} onClick={() => addFavoriteMovie(movie)}>Favorite</button>
+              <button className={styles.favoritados1}>Detalhes</button>
+            </div>
           </div>
         ))}
       </div>

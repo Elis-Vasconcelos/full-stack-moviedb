@@ -25,3 +25,31 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.favoritados{
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.favoritados1{
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02;
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+   
+}
+
+.botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

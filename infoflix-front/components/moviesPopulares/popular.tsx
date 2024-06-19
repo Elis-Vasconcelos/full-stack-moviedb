@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./popular.module.css";
+import styles from "./movies.module.css";
 
 
-export default function MoviesPopular() {
+export default function MoviesAvaliados() {
     return (
         <>
             <div className={styles.titulo}>
-                <h3>FILMES POPULARES</h3>
+                <h3>FILMES MAIS AVALIADOS</h3>
             </div>
         </>    
     );

@@ -6,6 +6,7 @@ import Navbar from "../../components/nav/navbar";
 import Login from "../../components/login/Login";
 import Register from "../../components/register/register";
 import style from "./page.module.css";
+import Popular from "../../components/moviesPopulares/popular";
 
 export default function Home() {
   const [userId, setUserId] = useState<number | null>(null);
@@ -34,6 +35,9 @@ export default function Home() {
           {showRegister ? 'Já tem conta? Login' : "Não tem conta? Registrar"}
         </button>
       )}
+
+      
+
     </main>
   );
 }

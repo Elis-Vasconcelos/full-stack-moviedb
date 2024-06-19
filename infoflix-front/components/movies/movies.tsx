@@ -88,7 +88,7 @@ export default function Movies() {
                 {favoriteMovies.map((movie, index) => (
                     <div key={movie.id} className={styles.filmes}>
                         <Image 
-                            src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`} 
+                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                             alt={movie.title}
                             width={500} 
                             height={750} 

@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
@@ -6,6 +7,7 @@ import bodyParser from 'body-parser';
 const prisma = new PrismaClient();
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const TMDB_API_KEY = 'eb4a0700966ecd9a61881d4b79da8fcb';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';

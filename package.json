@@ -1,0 +1,11 @@
+{
+  "name": "infoflix",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run dev --prefix infoflix-back\" \"npm run dev --prefix infoflix-front\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

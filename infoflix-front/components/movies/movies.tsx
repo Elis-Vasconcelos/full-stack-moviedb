@@ -10,9 +10,10 @@ export interface Movie {
 
 interface MoviesProps {
   userId: number;
+  token: string;
 }
 
-const Movies: React.FC<MoviesProps> = ({ userId }) => {
+const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
 
@@ -28,7 +29,11 @@ const Movies: React.FC<MoviesProps> = ({ userId }) => {
 
   const getFavoriteMovies = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/favorites/${userId}`);
+      const response = await fetch(`http://localhost:3000/api/favorites/${userId}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       const data = await response.json();
       setFavoriteMovies(data);
     } catch (error) {
@@ -42,6 +47,7 @@ const Movies: React.FC<MoviesProps> = ({ userId }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           userId,

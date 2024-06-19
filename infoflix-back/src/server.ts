@@ -12,6 +12,21 @@ app.use(cors());
 const TMDB_API_KEY = 'eb4a0700966ecd9a61881d4b79da8fcb';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
+app.post('/api/users', async (req: Request, res: Response) => {
+    const { name, email } = req.body;
+    try {
+      const user = await prisma.user.create({
+        data: {
+          name,
+          email,
+        },
+      });
+      res.status(201).json(user);
+    } catch (error) {
+      res.status(500).json({ error: 'Error creating user' });
+    }
+  });
+
 app.get('/api/movies', async (req: Request, res: Response) => {
   try {
     const response = await axios.get(`${TMDB_BASE_URL}/discover/movie?api_key=${TMDB_API_KEY}`);

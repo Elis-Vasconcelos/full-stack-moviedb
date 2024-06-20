@@ -5,6 +5,8 @@ import Logo from "../../public/infoflixLogo.png";
 import styles from "./header.module.css";
 import { useState, ChangeEvent, FormEvent} from 'react';
 import axios from 'axios';
+import Link from 'next/link';
+
 
 export default function Cabecalho() {
     const [pesquisa, setPesquisa] = useState<string>('');
@@ -38,7 +40,7 @@ export default function Cabecalho() {
 
     return (
         <div className={styles.cabecalho}>
-            <Image className={styles.logo} src={Logo} alt="Logo" priority />
+             <Link href='/'><Image className={styles.logo} src={Logo} alt="Logo" priority /></Link>
 
             <div className="barraPes">
                 <form className={styles.formPesquisa} onSubmit={barraPesquisaSubmit}>

@@ -7,19 +7,19 @@ export default function Navbar() {
             <nav>
                 <ul className={styles.menu}>
                         <li>
-                            <a href="">HOME</a>
+                            <a href="/">HOME</a>
                         </li>
         
                         <li>
-                            <a href="">FILMES FAVORITOS</a>
+                            <a href="\favoritos">FILMES FAVORITOS</a>
                         </li>
 
                         <li>
-                            <a href="">NEWS</a>
+                            <a href="/news">NEWS</a>
                         </li>
 
                         <li>
-                            <a href="">CONTATO</a>
+                            <a href="/contato">CONTATO</a>
                         </li>
                     </ul> 
             </nav>

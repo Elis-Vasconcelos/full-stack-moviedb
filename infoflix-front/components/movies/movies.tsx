@@ -44,7 +44,6 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
   };
 
   const addFavoriteMovie = async (movie: Movie) => {
-    // Verifica se o filme já está na lista de favoritos
     if (favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
       console.log('Movie already favorited');
       return;
@@ -117,7 +116,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
               className={styles.image}
               priority={index === 0}
             />
-            <p className={styles.tituloFilme}>{movie.title}</p> {/* Exibe o título do filme */}
+            <p className={styles.tituloFilme}>{movie.title}</p>
             <div className={styles.botoes}>
               <button className={styles.favoritados} onClick={() => addFavoriteMovie(movie)}>Favorite</button>
               <button className={styles.favoritados1}>Detalhes</button>

@@ -122,6 +122,34 @@ app.get('/api/movies/:title', async (req: Request, res: Response) => {
   }
 });
 
+app.delete('/api/favorites/:userId/:movieId', authenticate, async (req: AuthenticatedRequest, res: Response) => {
+  const { userId, movieId } = req.params;
+
+  try {
+    if (req.userId === undefined || parseInt(userId) !== req.userId) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    // Verifica se o filme favorito pertence ao usuário antes de deletar
+    const favorite = await prisma.movie.findUnique({
+      where: { id: parseInt(movieId) },
+    });
+
+    if (!favorite || favorite.userId !== req.userId) {
+      return res.status(404).json({ error: 'Favorite movie not found' });
+    }
+
+    await prisma.movie.delete({
+      where: { id: parseInt(movieId) },
+    });
+
+    res.json({ message: 'Favorite movie deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting favorite movie', error);
+    res.status(500).json({ error: 'Error deleting favorite movie' });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

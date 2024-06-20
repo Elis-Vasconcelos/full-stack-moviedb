@@ -68,7 +68,12 @@ export default function Cabecalho() {
                                 <li key={filme.id}>
                                     <h3>{filme.title}</h3>
                                     <p>{filme.overview}</p>
-                                    <img src={`https://image.tmdb.org/t/p/w500${filme.poster_path}`} alt={filme.title} />
+                                    <Image
+                                        src={`https://image.tmdb.org/t/p/w500${filme.poster_path}`}
+                                        alt={filme.title}
+                                        width={500}
+                                        height={750} // Adjust dimensions as per your requirement
+                                    />
                                 </li>
                             ))}
                         </ul>

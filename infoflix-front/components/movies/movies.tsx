@@ -17,6 +17,7 @@ interface MoviesProps {
 const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const getMovies = async () => {
     try {
@@ -50,6 +51,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
     }
 
     try {
+      setLoading(true);
       const response = await fetch('http://localhost:3000/api/favorites', {
         method: 'POST',
         headers: {
@@ -67,6 +69,26 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
       getFavoriteMovies(); // Atualiza lista de favoritos
     } catch (error) {
       console.error("Error adding favorite movie", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const removeFavoriteMovie = async (movieId: number) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`http://localhost:3000/api/favorites/${userId}/${movieId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      console.log('Removed from favorites:', movieId);
+      getFavoriteMovies(); // Atualiza lista de favoritos
+    } catch (error) {
+      console.error("Error removing favorite movie", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -120,6 +142,10 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
               className={styles.image}
               priority={index === 0}
             />
+            <p className={styles.tituloFilme}>{movie.title}</p>
+            <div className={styles.botoes}>
+              <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
+            </div>
           </div>
         ))}
       </div>

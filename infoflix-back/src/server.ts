@@ -110,6 +110,18 @@ app.get('/api/favorites/:userId', async (req: Request, res: Response) => {
   }
 });
 
+//Route to search by title
+app.get('/api/movies/:title', async (req: Request, res: Response) => {
+  const { title } = req.params;
+
+  try {
+    const response = await axios.get(`${TMDB_BASE_URL}/search/movie?query=${title}&api_key=${TMDB_API_KEY}`);
+    res.json(response.data.results);
+  } catch (error) {
+    console.error('Erro ao buscar filmes na API do TMDB:', error);
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

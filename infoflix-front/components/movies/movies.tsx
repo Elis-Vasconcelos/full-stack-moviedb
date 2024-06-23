@@ -160,7 +160,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
                 <p className={styles.releaseDate}>Release Date: {movie.release_date}</p>
                 <div className={styles.botoes}>
                   <button className={styles.favoritados} onClick={() => addFavoriteMovie(movie)}>Favorite</button>
-                  <button className={styles.favoritados1} onClick={() => toggleSynopsis(movie.id)}>
+                  <button className={styles.favoritados} onClick={() => toggleSynopsis(movie.id)}>
                     {expandedSynopsis[movie.id] ? "Menos" : "Detalhes"}
                   </button>
                 </div>
@@ -188,9 +188,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
             />
             <div className={styles.cardContent}>
               <h4 className={styles.tituloFilme}>{movie.title}</h4>
-              <div className={styles.botoes}>
-                <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
-              </div>
+              <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
             </div>
           </div>
         ))}

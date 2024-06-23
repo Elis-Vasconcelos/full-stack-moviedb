@@ -1,20 +1,20 @@
 .exibicao {
-    overflow-x: auto; /* Permite rolar horizontalmente caso haja mais filmes do que a largura disponível */
+    overflow-x: auto;
     display: flex;
     gap: 20px;
-    scrollbar-width: thin; /* Largura da barra de rolagem */
+    scrollbar-width: thick; 
     scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.1); 
     padding: 20px;
-    background-color: #000; /* Fundo preto para modo noturno */
+    background-color: #000; 
   }
   
   .card {
     flex: 0 0 auto;
-    width: 200px; /* Define a largura menor para cada filme */
-    background: #1c1c1c; /* Fundo escuro para o cartão */
+    width: 20rem; 
+    background: #1c1c1c; 
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
     display: flex;
     flex-direction: column;
   }
@@ -22,12 +22,12 @@
   .image {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Garante que a imagem cubra o espaço da div */
-    border-bottom: 1px solid #333; /* Linha de divisão mais escura */
+    object-fit: cover; 
+    border-bottom: 1px solid #333; 
   }
   
   .cardContent {
-    padding: 10px; /* Menor padding para a nova largura */
+    padding: 10px; 
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -35,10 +35,10 @@
   
   .tituloFilme {
     text-align: center;
-    font-size: 1em; /* Tamanho de fonte ajustado */
+    font-size: 1em;
     margin-top: 10px;
     font-weight: bold;
-    color: #fff; /* Texto branco para melhor contraste */
+    color: #fff; 
   }
   
   .sinopse {
@@ -46,44 +46,45 @@
     color: #ccc;
     margin-top: 10px;
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   
   .bottom {
-    margin-top: auto; /* Empurra os botões para a parte inferior */
+    margin-top: auto;
   }
   
   .releaseDate {
-    font-size: 0.8em; /* Tamanho de fonte ajustado */
-    color: #999; /* Texto cinza para a data de lançamento */
+    font-size: 0.8em;
+    color: #999; 
     margin-bottom: 5px;
   }
   
   .botoes {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Espaço entre os botões */
-    margin-top: auto; /* Empurra os botões para a parte inferior */
+    justify-content: space-between; 
+    margin-top: auto; 
   }
   
   .favoritados, .favoritados1 {
     padding: 8px 16px;
     border: none;
-    background-color: #356B02; /* Cor de fundo dos botões */
+    background-color: #356B02;
     color: white;
     border-radius: 16px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: auto 5px;
+    flex-grow: 1;
   }
   
   .titulo {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    color: #fff; /* Texto branco para o título */
+    color: #fff; 
   }
   
   .logoutButton {
@@ -93,7 +94,7 @@
     padding: 8px 16px;
     margin: 10px;
     border: solid 1px #356B02;
-    background-color: #000; /* Fundo preto */
+    background-color: #000;
     color: #356B02;
     border-radius: 16px;
     cursor: pointer;

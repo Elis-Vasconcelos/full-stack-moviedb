@@ -57,7 +57,8 @@ const Favoritos: React.FC<FavoritosProps> = ({ userId, token }) => {
 
             <div className={styles.exibicao}>
                 {favoriteMovies.map((movie, index) => (
-                    <div key={movie.id} className={styles.filmes}>
+                    <div className={styles.card}>
+                        <div key={movie.id} className={styles.filmes}>
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
                             alt={movie.title}
@@ -67,9 +68,10 @@ const Favoritos: React.FC<FavoritosProps> = ({ userId, token }) => {
                             className={styles.image}
                             priority={index === 0}
                         />
-                        <p className={styles.tituloFilme}>{movie.title}</p>
-                        <div className={styles.botoes}>
-                            <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
+                            <div className={styles.cardContent}>
+                                <p className={styles.tituloFilme}>{movie.title}</p>
+                                <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
+                            </div>
                         </div>
                     </div>
                 ))}

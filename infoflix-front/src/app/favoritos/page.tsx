@@ -1,10 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Login from '../../../components/login/Login';
-import Favoritos from '../../../components/favoritos/favoritos';
+import { useRouter } from 'next/navigation'; // Corrigido de 'next/navigation' para 'next/router'
 import Navbar from '../../../components/nav/navbar';
+import Favoritos from '../../../components/favoritos/favoritos';
 
 // Função para recuperar o estado de login
 const retrieveLoginState = () => {
@@ -23,30 +22,24 @@ const App = () => {
 
   useEffect(() => {
     const { userId, token } = retrieveLoginState();
-    if (userId !== null && token !== null) {
-      setUserId(userId);
-      setToken(token);
+    setUserId(userId);
+    setToken(token);
+    if (userId === null && token === null) {
+      router.push('/'); // Redireciona para a página inicial
+    } else if (userId !== null && token !== null) {
       router.push('/favoritos'); // Redireciona para a página de favoritos
     }
   }, [router]);
 
-  // Se não houver userId ou token, renderiza o componente de Login
-  if (userId === null || token === null) {
-    return (
-      <>
-        <Navbar />
-        <Login setUserId={setUserId} setToken={setToken} />
-      </>
-    );
-  }
-
-  // Se userId e token estiverem presentes, renderiza o componente de Favoritos
+  // Renderiza o componente de Navbar em todos os casos
   return (
     <>
       <Navbar />
-      <Favoritos userId={userId} token={token} />
+      {/* O componente de Favoritos será renderizado se userId e token estiverem presentes */}
+      {userId !== null && token !== null && <Favoritos userId={userId} token={token} />}
     </>
   );
 };
 
 export default App;
+

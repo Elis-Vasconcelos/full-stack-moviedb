@@ -79,7 +79,7 @@ app.get('/api/movies', async (req: Request, res: Response) => {
 
 // Example route using req.userId
 app.post('/api/favorites', authenticate, async (req: AuthenticatedRequest, res: Response) => {
-  const { userId, title, posterPath } = req.body;
+  const { title, posterPath } = req.body;
   try {
     if (req.userId === undefined) {
       return res.status(401).json({ error: 'Unauthorized' });

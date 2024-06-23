@@ -1,32 +1,54 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Logo from "../../public/infoflixLogo.png";
-import styles from "./header.module.css";
-import { useState, ChangeEvent, FormEvent} from 'react';
+import Image from 'next/image';
+import Logo from '../../public/infoflixLogo.png';
+import styles from './header.module.css';
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import Link from 'next/link';
+import { Movie } from '../movies/movies';
 
 export default function Cabecalho() {
-    const [pesquisa, setPesquisa] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false);
-    const [filmes, setFilmes] = useState<any[]>([]);
-    const [erro, setErro] = useState<string>('');
+    const [pesquisa, setPesquisa] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [filmes, setFilmes] = useState<Movie[]>([]);
+    const [erro, setErro] = useState('');
+    const [showResults, setShowResults] = useState(false);
 
     const TMDB_API_KEY = 'eb4a0700966ecd9a61881d4b79da8fcb';
     const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
     const barraPesquisa = (event: ChangeEvent<HTMLInputElement>) => {
-        setPesquisa(event.target.value);  
+        const valorPesquisa = event.target.value;
+        setPesquisa(valorPesquisa);
+        setShowResults(!!valorPesquisa); // Show results only if search is not empty
     };
 
-    const barraPesquisaSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // Prevenir o comportamento padrão do formulário
-        
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); // Prevent form submission
+        realizarPesquisa(); // Handle search logic
+    };
+
+    useEffect(() => {
+        // Function to debounce the API call
+        const timeoutId = setTimeout(() => {
+            if (pesquisa.trim()) {
+                realizarPesquisa();
+            } else {
+                setFilmes([]);
+                setErro('');
+                setLoading(false);
+            }
+        }, 500); // Adjust debounce delay as needed (e.g., 500ms)
+
+        return () => clearTimeout(timeoutId);
+    }, [pesquisa]); // Trigger effect on each change to 'pesquisa'
+
+    const realizarPesquisa = async () => {
         try {
             setLoading(true);
             const response = await fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(pesquisa)}&api_key=${TMDB_API_KEY}`);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('A resposta da rede não foi ok');
             }
             const data = await response.json();
             setFilmes(data.results);
@@ -42,11 +64,12 @@ export default function Cabecalho() {
 
     return (
         <div className={styles.cabecalho}>
-            <Link href='/'><Image className={styles.logo} src={Logo} alt="Logo" priority /></Link>
+            <Link href='/' passHref>
+                <Image className={styles.logo} src={Logo} alt="Logo" priority />
+            </Link>
 
-            <div className="barraPes">
-                <form className={styles.formPesquisa} onSubmit={barraPesquisaSubmit}>
-                    <button type="submit" className={styles.buttonMovie}>Movie</button>
+            <div className={styles.barraPes}>
+                <form className={styles.formPesquisa} onSubmit={handleSubmit}>
                     <input
                         type="text"
                         value={pesquisa}
@@ -56,27 +79,22 @@ export default function Cabecalho() {
                     />
                     <button type="submit" className={styles.buttonPesquisa}>SEARCH</button>
                 </form>
-                
-                {/* Mostrar loading enquanto busca */}
+
                 {loading && <p>Carregando...</p>}
+                {erro && <p className={styles.mensagemErro}>{erro}</p>}
                 
-                {/* Mostrar mensagem de erro, se houver */}
-                {erro && <p>{erro}</p>}
-                
-                {/* Mostrar resultados da pesquisa */}
-                {filmes.length > 0 && (
+                {showResults && filmes.length > 0 && (
                     <div className={styles.resultados}>
-                        <h2>Resultados da Pesquisa:</h2>
-                        <ul>
+                        <ul className={styles.listaFilmes}>
                             {filmes.map((filme) => (
-                                <li key={filme.id}>
-                                    <h3>{filme.title}</h3>
-                                    <p>{filme.overview}</p>
+                                <li key={filme.id} className={styles.itemFilme}>
+                                    <h3 className={styles.detailsFilme}>{filme.title}</h3>
                                     <Image
                                         src={`https://image.tmdb.org/t/p/w500${filme.poster_path}`}
                                         alt={filme.title}
                                         width={500}
-                                        height={750} // Adjust dimensions as per your requirement
+                                        height={750}
+                                        layout='responsive'
                                     />
                                 </li>
                             ))}

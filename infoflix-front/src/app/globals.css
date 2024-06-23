@@ -23,3 +23,7 @@ body, html {
 footer {
   height: 15rem;
 }
+
+header {
+  z-index: 9999;
+}

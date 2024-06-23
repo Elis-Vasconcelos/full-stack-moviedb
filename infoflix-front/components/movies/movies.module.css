@@ -3,63 +3,89 @@
     display: flex;
     gap: 20px;
     scrollbar-width: thin; /* Largura da barra de rolagem */
-    scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.1); 
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.1); 
     padding: 20px;
-}
-
-
-.filmes {
-    flex: 0 0 auto;
-    width: 200px; /* Define a largura fixa para cada filme */
+    background-color: #000; /* Fundo preto para modo noturno */
+  }
   
-}
-
-.image {
+  .card {
+    flex: 0 0 auto;
+    width: 200px; /* Define a largura menor para cada filme */
+    background: #1c1c1c; /* Fundo escuro para o cartão */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .image {
     width: 100%;
     height: auto;
     object-fit: cover; /* Garante que a imagem cubra o espaço da div */
-}
-
-.titulo{
+    border-bottom: 1px solid #333; /* Linha de divisão mais escura */
+  }
+  
+  .cardContent {
+    padding: 10px; /* Menor padding para a nova largura */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .tituloFilme {
+    text-align: center;
+    font-size: 1em; /* Tamanho de fonte ajustado */
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff; /* Texto branco para melhor contraste */
+  }
+  
+  .sinopse {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .bottom {
+    margin-top: auto; /* Empurra os botões para a parte inferior */
+  }
+  
+  .releaseDate {
+    font-size: 0.8em; /* Tamanho de fonte ajustado */
+    color: #999; /* Texto cinza para a data de lançamento */
+    margin-bottom: 5px;
+  }
+  
+  .botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espaço entre os botões */
+    margin-top: auto; /* Empurra os botões para a parte inferior */
+  }
+  
+  .favoritados, .favoritados1 {
+    padding: 8px 16px;
+    border: none;
+    background-color: #356B02; /* Cor de fundo dos botões */
+    color: white;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .titulo {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-.favoritados{
-    padding: 8px 16px;
-    border: none;
-    background-color: #356B02;
-    color: white;
-    border-radius: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-right: 15px;
-}
-
-.favoritados1{
-    padding: 8px 16px;
-    border: none;
-    background-color: #356B02;
-    color: white;
-    border-radius: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-   
-}
-
-.botoes{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.tituloFilme {
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
+    color: #fff; /* Texto branco para o título */
   }
-
+  
   .logoutButton {
     display: flex;
     flex-direction: row;
@@ -67,9 +93,16 @@
     padding: 8px 16px;
     margin: 10px;
     border: solid 1px #356B02;
-    background-color: black;
+    background-color: #000; /* Fundo preto */
     color: #356B02;
     border-radius: 16px;
     cursor: pointer;
     margin-top: 10px;
   }
+  
+  .sinopseExpanded {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-top: 10px;
+  }
+  

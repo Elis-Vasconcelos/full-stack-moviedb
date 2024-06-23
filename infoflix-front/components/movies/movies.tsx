@@ -55,18 +55,32 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
         body: JSON.stringify({
           userId,
           title: movie.title,
-          posterPath: movie.poster_path || movie.posterPath, // Usando o que estiver definido
+          posterPath: movie.poster_path || movie.posterPath,
         }),
       });
-      const data = await response.json();
-      console.log('Added to favorites:', data);
-      getFavoriteMovies(); // Atualiza lista de favoritos
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Added to favorites:', data);
+        // Atualiza a interface do usuário para mostrar que o filme foi adicionado
+        alert('Filme adicionado aos favoritos!');
+        getFavoriteMovies(); // Atualiza lista de favoritos
+      } else if (response.status === 409) {
+        // Se o filme já estiver na lista de favoritos, informa o usuário
+        alert('Este filme já está na sua lista de favoritos.');
+      } else {
+        // Outros erros
+        console.error('Erro ao adicionar o filme aos favoritos');
+        alert('Não foi possível adicionar o filme aos favoritos.');
+      }
     } catch (error) {
-      console.error("Error adding favorite movie", error);
+      console.error("Erro ao adicionar filme favorito", error);
+      alert('Erro na rede ou no servidor ao adicionar o filme aos favoritos.');
     } finally {
       setLoading(false);
     }
   };
+  
 
   const removeFavoriteMovie = async (movieId: number) => {
     try {

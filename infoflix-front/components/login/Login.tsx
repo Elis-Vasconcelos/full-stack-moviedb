@@ -28,10 +28,13 @@ const Login: React.FC<LoginProps> = ({ setUserId, setToken }) => {
         if (decodedToken && typeof decodedToken.userId === 'number') {
           setUserId(decodedToken.userId);
           console.log('User logged in:', decodedToken.userId);
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('userId', decodedToken.userId.toString());
         } else {
           console.error('Invalid token format');
         }
       }
+      
     } catch (error) {
       console.error('Error logging in:', error);
     }

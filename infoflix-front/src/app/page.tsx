@@ -13,8 +13,21 @@ export default function Home() {
   const [isClient, setIsClient] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
 
+  const handleLogout = () => {
+    setToken(null);
+    setUserId(null);
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  };
+
   useEffect(() => {
     setIsClient(true);
+    const storedToken = localStorage.getItem('token');
+    const storedUserId = localStorage.getItem('userId');
+    if (storedToken && storedUserId) {
+      setToken(storedToken);
+      setUserId(Number(storedUserId));
+    }
   }, []);
 
   return (
@@ -26,8 +39,8 @@ export default function Home() {
         ) : (
           <Login setUserId={setUserId} setToken={setToken} />
         )
-      ) : isClient && userId ? (
-        <Movies userId={userId} token={token!} />
+      ) : isClient && userId && token ? (
+        <Movies userId={userId} token={token} onLogout={handleLogout} />
       ) : null}
       {isClient && !userId && (
         <button className={style.register} onClick={() => setShowRegister(!showRegister)}>

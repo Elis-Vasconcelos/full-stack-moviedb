@@ -59,3 +59,17 @@
     margin-top: 10px;
     font-weight: bold;
   }
+
+  .logoutButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 8px 16px;
+    margin: 10px;
+    border: solid 1px #356B02;
+    background-color: black;
+    color: #356B02;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }

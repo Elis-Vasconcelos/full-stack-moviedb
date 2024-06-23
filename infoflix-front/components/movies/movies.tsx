@@ -12,12 +12,21 @@ export interface Movie {
 interface MoviesProps {
   userId: number;
   token: string;
+  onLogout: () => void;
 }
 
-const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
+const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const handleLogout = () => {
+    // Limpar localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    onLogout();
+  };
+
 
   const getMovies = async () => {
     try {
@@ -157,6 +166,10 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
           </div>
         ))}
       </div>
+
+      <button onClick={handleLogout} className={styles.logoutButton}>
+          Logout
+      </button>
     </>
   );
 };

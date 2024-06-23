@@ -1,7 +1,7 @@
 // src/components/Favoritos.tsx
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./movies.module.css";
+import styles from "../movies/movies.module.css";
 import { Movie } from "../movies/movies"; // Importe a interface Movie se necessário
 
 interface FavoritosProps {

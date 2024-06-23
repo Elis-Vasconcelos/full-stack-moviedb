@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+.logcont {
+    display: flex;
+    justify-content: space-between;
+}
+
 .inputLogin{
     border-radius: 20px;
     padding: 3px;
@@ -16,11 +21,13 @@
 }
 
 .botLogin{
+    display: flex;
+    align-self: center;
     padding: 8px 16px;
     border: none;
     background-color: #356B02;
     color: white;
     border-radius: 16px;
     cursor: pointer;
-    margin-left: 100px;
+    margin: 10px auto;
 }

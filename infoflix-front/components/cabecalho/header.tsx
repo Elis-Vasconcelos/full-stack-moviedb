@@ -4,9 +4,7 @@ import Image from "next/image";
 import Logo from "../../public/infoflixLogo.png";
 import styles from "./header.module.css";
 import { useState, ChangeEvent, FormEvent} from 'react';
-import axios from 'axios';
 import Link from 'next/link';
-
 
 export default function Cabecalho() {
     const [pesquisa, setPesquisa] = useState<string>('');
@@ -26,8 +24,12 @@ export default function Cabecalho() {
         
         try {
             setLoading(true);
-            const response = await axios.get(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(pesquisa)}&api_key=${TMDB_API_KEY}`);
-            setFilmes(response.data.results);
+            const response = await fetch(`${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(pesquisa)}&api_key=${TMDB_API_KEY}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setFilmes(data.results);
             setErro('');
         } catch (error) {
             console.error('Erro ao buscar filmes na API do TMDB:', error);
@@ -40,7 +42,7 @@ export default function Cabecalho() {
 
     return (
         <div className={styles.cabecalho}>
-             <Link href='/'><Image className={styles.logo} src={Logo} alt="Logo" priority /></Link>
+            <Link href='/'><Image className={styles.logo} src={Logo} alt="Logo" priority /></Link>
 
             <div className="barraPes">
                 <form className={styles.formPesquisa} onSubmit={barraPesquisaSubmit}>

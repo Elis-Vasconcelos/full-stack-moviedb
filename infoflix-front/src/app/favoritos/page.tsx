@@ -1,9 +1,11 @@
 // src/pages/index.tsx
+'use client'
+
 import React, { useState } from 'react';
 import Login from '../../../components/login/Login';
 import Movies from '../../../components/movies/movies';
 import Favoritos from '../../../components/favoritos/favoritos';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const App = () => {
   const [userId, setUserId] = useState<number | null>(null);

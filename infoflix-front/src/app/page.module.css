@@ -1,5 +1,7 @@
 .register{
-    margin: 10px 0px 50px 900px;
+    display: flex;
+    align-self: center;
+    margin: 10px auto;
     padding: 8px 16px;
     border: none;
     background-color: #356B02;

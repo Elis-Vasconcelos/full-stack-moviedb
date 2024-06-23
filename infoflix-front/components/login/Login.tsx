@@ -41,7 +41,7 @@ const Login: React.FC<LoginProps> = ({ setUserId, setToken }) => {
     <div className={style.login}>  
 
       <form className={style.formslog} onSubmit={handleLogin}>
-        <div>
+        <div className={style.logcont}>
           <label className={style.label}>Email:</label>
             <input
             type="email"
@@ -50,21 +50,20 @@ const Login: React.FC<LoginProps> = ({ setUserId, setToken }) => {
             placeholder="Digite seu e-mail"
             className={style.inputLogin}
             />
+        </div>
 
-          </div>
+        <div>
+          <label className={style.label}>Senha:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Digite sua senha"
+            className={style.inputLogin}
+          />
+        </div>
 
-          <div>
-            <label className={style.label}>Senha:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Digite sua senha"
-              className={style.inputLogin}
-            />
-          </div>
-
-          <button className={style.botLogin} type="submit">Login</button>
+        <button className={style.botLogin} type="submit">Login</button>
       </form>
 
     </div>

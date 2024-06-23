@@ -38,7 +38,7 @@ export default function RootLayout({
 
         </div>
 
-        </body>
+      </body>
     </html>
   );
 }

@@ -79,24 +79,40 @@ app.get('/api/movies', async (req: Request, res: Response) => {
 
 // Example route using req.userId
 app.post('/api/favorites', authenticate, async (req: AuthenticatedRequest, res: Response) => {
-    const { userId, title, posterPath } = req.body;
-    try {
-      if (req.userId === undefined) {
-        return res.status(401).json({ error: 'Unauthorized' });
-      }
-  
-      const favorite = await prisma.movie.create({
-        data: {
-          title,
-          posterPath,
-          userId: req.userId
-        }
-      });
-      res.status(201).json(favorite);
-    } catch (error) {
-      res.status(500).json({ error: 'Error adding movie to favorites' });
+  const { userId, title, posterPath } = req.body;
+  try {
+    if (req.userId === undefined) {
+      return res.status(401).json({ error: 'Unauthorized' });
     }
-  });
+
+    // Verifica se o filme já está na lista de favoritos
+    const existingFavorite = await prisma.movie.findFirst({
+      where: {
+        userId: req.userId,
+        title: title
+      }
+    });
+
+    // Se o filme já estiver na lista de favoritos, retorna um erro
+    if (existingFavorite) {
+      return res.status(409).json({ error: 'Movie already favorited' });
+    }
+
+    // Se não estiver, cria um novo favorito
+    const favorite = await prisma.movie.create({
+      data: {
+        title,
+        posterPath,
+        userId: req.userId
+      }
+    });
+
+    res.status(201).json(favorite);
+  } catch (error) {
+    res.status(500).json({ error: 'Error adding movie to favorites' });
+  }
+});
+
   
 app.get('/api/favorites/:userId', async (req: Request, res: Response) => {
   const { userId } = req.params;

@@ -44,11 +44,6 @@ const Movies: React.FC<MoviesProps> = ({ userId, token }) => {
   };
 
   const addFavoriteMovie = async (movie: Movie) => {
-    if (favoriteMovies.some(favMovie => favMovie.id === movie.id)) {
-      console.log('Movie already favorited');
-      return;
-    }
-
     try {
       setLoading(true);
       const response = await fetch('http://localhost:3000/api/favorites', {

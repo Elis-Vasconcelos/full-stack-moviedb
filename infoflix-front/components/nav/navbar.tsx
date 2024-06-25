@@ -11,15 +11,7 @@ export default function Navbar() {
                         </li>
         
                         <li>
-                            <a href="\favoritos">FILMES FAVORITOS</a>
-                        </li>
-
-                        <li>
-                            <a href="/news">NEWS</a>
-                        </li>
-
-                        <li>
-                            <a href="/contato">CONTATO</a>
+                            <a href="\favoritos">FAVORITOS</a>
                         </li>
                     </ul> 
             </nav>

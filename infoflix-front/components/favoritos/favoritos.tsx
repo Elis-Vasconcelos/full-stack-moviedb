@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../movies/movies.module.css";
 import { Movie } from "../movies/movies"; // Importe a interface Movie se necessário
+import Link from "next/link";
 
 interface FavoritosProps {
     userId: number;
@@ -69,7 +70,7 @@ const Favoritos: React.FC<FavoritosProps> = ({ userId, token }) => {
                             priority={index === 0}
                         />
                             <div className={styles.cardContent}>
-                                <p className={styles.tituloFilme}>{movie.title}</p>
+                                <Link href={`/movie/${movie.id}`} passHref className={styles.tituloFilme}>{movie.title}</Link>
                                 <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
                             </div>
                         </div>

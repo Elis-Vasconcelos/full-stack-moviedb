@@ -1,26 +1,27 @@
-.navegacao{
+.navegacao {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.menu{
+    width: 100%; /* Garante que a div ocupe a largura total */
+  }
+  
+  .menu {
     display: flex;
     flex-direction: row;
-    gap:20px;
+    gap: 20px;
     list-style-type: none;
-}
-
-.menu li{
-    margin-left: 20px;
-}
-
-.menu a{
+    padding: 0; /* Remove o padding padrão da lista */
+    margin: 1rem 0; /* Remove a margem padrão da lista */
+  }
+  
+  .menu a {
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
-}
-
-.menu a:hover{
+    color: #fff; /* Adiciona cor ao texto para melhor visibilidade */
+  }
+  
+  .menu a:hover {
     color: #356B02;
-}
+  }
+  

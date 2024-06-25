@@ -50,7 +50,7 @@ const Register: React.FC<RegisterProps> = ({ setUserId, setToken }) => {
   return (
     <div className={style.register}>
       <form onSubmit={handleRegister}>
-        <div>
+        <div className={style.labelinput}>
           <label className={style.label}>Nome:</label>
           <input
             type="text"
@@ -60,7 +60,7 @@ const Register: React.FC<RegisterProps> = ({ setUserId, setToken }) => {
             className={style.inputRegister}
           />
         </div>
-        <div>
+        <div className={style.labelinput}>
           <label className={style.label}>Email:</label>
           <input
             type="email"
@@ -70,7 +70,7 @@ const Register: React.FC<RegisterProps> = ({ setUserId, setToken }) => {
             className={style.inputRegister}
           />
         </div>
-        <div>
+        <div className={style.labelinput}>
           <label className={style.label}>Senha:</label>
           <input
             type="password"

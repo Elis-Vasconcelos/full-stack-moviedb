@@ -18,7 +18,7 @@
     margin-right: 60px;
 
 }
-.star h3, .genero h3, .redes h3{
+.star h3, .redes h3{
     color: #356B02;
     margin-left: 10px;
     
@@ -50,32 +50,37 @@
     color: #356B02;
 }
 
-.formsins{
-    margin-left: 45px;
-   
-}
-
-.inscricao{
-    padding: 8px 16px;
-    border: none;
-    background-color: #356B02;
-    color: white;
-    border-radius: 16px;
-    cursor: pointer;
-    width: 11rem;
-    margin-top: 15px;
-    margin-left: 45px;
-}
-
-.inputInscricao{
-    border-radius: 20px;
-    padding: 8px;
-    color: black;
-}
-
 .social{
     display: flex;
     justify-content: space-evenly;
     margin-left: 10px;
 }
 
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+        height: auto;
+    }
+
+    .filmes, .subscribe, .formsins, .social {
+        margin-right: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .star h3, .redes h3, .subscribe h3, .copy h3, .copy h5 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .movies {
+        margin-left: -30px;
+    }
+
+    .movies li {
+        text-align: center;
+    }
+}

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./movies.module.css";
-import Link from "next/link";
 
 export interface Movie {
-  vote_average: number;
   id: number;
   title: string;
   poster_path: string; // Para movieList
@@ -154,7 +152,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
               priority={index === 0}
             />
             <div className={styles.cardContent}>
-              <Link href={`/movie/${movie.id}`} passHref className={styles.tituloFilme}>{movie.title}</Link>
+              <h4 className={styles.tituloFilme}>{movie.title}</h4>
               <p className={expandedSynopsis[movie.id] ? styles.sinopseExpanded : styles.sinopse}>
                 {movie.overview}
               </p>
@@ -171,7 +169,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
           </div>
         ))}
       </div>
-      
+
       <button onClick={handleLogout} className={styles.logoutButton}>
         Logout
       </button>

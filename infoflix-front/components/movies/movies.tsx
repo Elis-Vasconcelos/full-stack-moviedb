@@ -159,9 +159,9 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
                 {movie.overview}
               </p>
               <div className={styles.bottom}>
-                <p className={styles.releaseDate}>Release Date: {movie.release_date}</p>
+                <p className={styles.releaseDate}>Data de lançamento: {movie.release_date}</p>
                 <div className={styles.botoes}>
-                  <button className={styles.favoritados} onClick={() => addFavoriteMovie(movie)}>Favorite</button>
+                  <button className={styles.favoritados} onClick={() => addFavoriteMovie(movie)}>Favoritar</button>
                   <button className={styles.favoritados} onClick={() => toggleSynopsis(movie.id)}>
                     {expandedSynopsis[movie.id] ? "Menos" : "Detalhes"}
                   </button>

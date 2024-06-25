@@ -112,7 +112,7 @@ export default function MovieDetails({ params }: MovieDetailsProps) {
                         <p className={styles.movieOverview}>{movie.overview}</p>
                     </div>
                     <button className={styles.favoriteButton} onClick={() => addFavoriteMovie(movie)}>
-                        {loading ? 'Adding...' : 'Add to Favorites'}
+                        {loading ? 'Adding...' : 'Favoritar'}
                     </button>
                 </div>
             </div>

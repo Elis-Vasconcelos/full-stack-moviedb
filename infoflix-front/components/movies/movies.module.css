@@ -41,6 +41,10 @@
     color: #fff; 
     text-decoration: none;
   }
+
+  .tituloFilme:hover {
+    color: #356B02;
+  }
   
   .sinopse {
     font-size: 0.9em;

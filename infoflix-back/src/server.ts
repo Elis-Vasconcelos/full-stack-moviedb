@@ -77,6 +77,15 @@ app.get('/api/movies', async (req: Request, res: Response) => {
   }
 });
 
+app.get('/api/topRated', async (req: Request, res: Response) => {
+  try {
+    const response = await axios.get(`${TMDB_BASE_URL}/movie/top_rated?api_key=${TMDB_API_KEY}`);
+    res.json(response.data.results);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching top rated movies from TMDB' });
+  }
+});
+
 // Example route using req.userId
 app.post('/api/favorites', authenticate, async (req: AuthenticatedRequest, res: Response) => {
   const { title, posterPath } = req.body;

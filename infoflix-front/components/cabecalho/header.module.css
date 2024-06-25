@@ -1,12 +1,13 @@
 .cabecalho {
-    position: relative; /* Definido como relative para posicionar absolutamente os resultados da pesquisa em relação a ele */
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 6rem;
     border-bottom: 1px solid #333333;
-    z-index: 2; /* Garante que o cabeçalho fique acima dos resultados da pesquisa */
+    z-index: 2;
+    margin-top: 1rem;
 }
 
 .logo{
@@ -38,7 +39,7 @@
 }
 
 .inputPesquisa:focus {
-    outline: none; /* Remove a borda ao focar */
+    outline: none;
 }
 
 .buttonPesquisa{
@@ -56,13 +57,13 @@
     background-color: white;
     color: rgba(174, 172, 172, 0.779);
     border-radius: 16px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra para efeito de botão */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: auto;
-    background-color: transparent; /* Deixar transparente para combinar com o input */
+    background-color: transparent; 
     border: 1px solid lightgray;
 }
 

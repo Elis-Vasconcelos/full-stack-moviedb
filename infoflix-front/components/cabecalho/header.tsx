@@ -24,9 +24,11 @@ export default function Cabecalho() {
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault(); // Prevent form submission
-        realizarPesquisa(); // Handle search logic
+        event.preventDefault(); // Impede a submissão do formulário
+        realizarPesquisa(); // Lida com a lógica de pesquisa
+        setPesquisa(''); // Limpa o campo de pesquisa após a submissão
     };
+    
 
     useEffect(() => {
         // Function to debounce the API call
@@ -83,19 +85,22 @@ export default function Cabecalho() {
                 {loading && <p>Carregando...</p>}
                 {erro && <p className={styles.mensagemErro}>{erro}</p>}
                 
+                
                 {showResults && filmes.length > 0 && (
                     <div className={styles.resultados}>
                         <ul className={styles.listaFilmes}>
                             {filmes.map((filme) => (
                                 <li key={filme.id} className={styles.itemFilme}>
-                                    <h3 className={styles.detailsFilme}>{filme.title}</h3>
-                                    <Image
-                                        src={`https://image.tmdb.org/t/p/w500${filme.poster_path}`}
-                                        alt={filme.title}
-                                        width={500}
-                                        height={750}
-                                        layout='responsive'
-                                    />
+                                    <Link href={`/movie/${filme.id}`} passHref>
+                                            <h3 className={styles.detailsFilme}>{filme.title}</h3>
+                                            <Image
+                                                src={`https://image.tmdb.org/t/p/w500${filme.poster_path}`}
+                                                alt={filme.title}
+                                                width={500}
+                                                height={750}
+                                                layout='responsive'
+                                            />
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

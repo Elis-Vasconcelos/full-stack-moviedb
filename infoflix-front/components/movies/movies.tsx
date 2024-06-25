@@ -201,7 +201,8 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
               priority={index === 0}
             />
             <div className={styles.voteCircle}>
-              {movie.vote_percentage?.toFixed(0)}%
+              <div className={styles.progressBar} style={{ transform: `rotate(${(movie.vote_percentage || 0) * 3.6}deg)` }}></div>
+              <div className={styles.percentageText}>{movie.vote_percentage?.toFixed(0)}%</div>
             </div>
 
             <div className={styles.cardContent}>
@@ -247,7 +248,8 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
               priority={index === 0}
             />
             <div className={styles.voteCircle}>
-              {movie.vote_percentage?.toFixed(0)}%
+              <div className={styles.progressBar} style={{ transform: `rotate(${(movie.vote_percentage || 0) * 3.6}deg)` }}></div>
+              <div className={styles.percentageText}>{movie.vote_percentage?.toFixed(0)}%</div>
             </div>
             
             <div className={styles.cardContent}>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./movies.module.css";
-import Link from "next/link";
 
 export interface Movie {
-  vote_average: number;
   id: number;
   title: string;
   poster_path: string; // Para movieList
@@ -154,7 +152,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
               priority={index === 0}
             />
             <div className={styles.cardContent}>
-              <Link href={`/movie/${movie.id}`} passHref className={styles.tituloFilme}>{movie.title}</Link>
+              <h4 className={styles.tituloFilme}>{movie.title}</h4>
               <p className={expandedSynopsis[movie.id] ? styles.sinopseExpanded : styles.sinopse}>
                 {movie.overview}
               </p>
@@ -167,30 +165,6 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.titulo}>
-        <h3>FAVORITOS</h3>
-      </div>
-
-      <div className={styles.exibicao}>
-        {favoriteMovies.map((movie, index) => (
-          <div key={movie.id} className={styles.card}>
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
-              alt={movie.title}
-              width={500}
-              height={750}
-              layout="responsive"
-              className={styles.image}
-              priority={index === 0}
-            />
-            <div className={styles.cardContent}>
-              <h4 className={styles.tituloFilme}>{movie.title}</h4>
-              <button className={styles.favoritados} onClick={() => removeFavoriteMovie(movie.id)}>Delete</button>
             </div>
           </div>
         ))}

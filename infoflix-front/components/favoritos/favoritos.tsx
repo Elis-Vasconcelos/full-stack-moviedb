@@ -57,7 +57,7 @@ const Favoritos: React.FC<FavoritosProps> = ({ userId, token }) => {
 
             <div className={styles.exibicao}>
                 {favoriteMovies.map((movie, index) => (
-                    <div className={styles.card}>
+                    <div key={index} className={styles.card}>
                         <div key={movie.id} className={styles.filmes}>
                         <Image
                             src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}

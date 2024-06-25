@@ -170,9 +170,6 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
         ))}
       </div>
 
-      <div className={styles.titulo}>
-        <h3>FAVORITOS</h3>
-      </div>
 
       <div className={styles.exibicao}>
         {favoriteMovies.map((movie, index) => (

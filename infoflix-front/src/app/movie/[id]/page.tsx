@@ -91,8 +91,9 @@ export default function MovieDetails({ params }: MovieDetailsProps) {
     }
 
     return (
+        <>
+        <Navbar />
         <div className={styles.pageContainer}>
-            <Navbar />
             <div className={styles.movieHeader}>
                 <div className={styles.moviePoster}>
                     <Image
@@ -116,5 +117,6 @@ export default function MovieDetails({ params }: MovieDetailsProps) {
                 </div>
             </div>
         </div>
+        </>
     );
 }

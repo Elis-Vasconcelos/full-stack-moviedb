@@ -26,3 +26,7 @@
 
 }
 
+.labelinput {
+    display: flex;
+    justify-content: space-between;
+}

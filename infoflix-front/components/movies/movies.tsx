@@ -57,7 +57,7 @@ const Movies: React.FC<MoviesProps> = ({ userId, token, onLogout }) => {
     if (!isDragging[listType] || !ref.current) return;
     e.preventDefault();
     const x = e.pageX - ref.current.offsetLeft;
-    const walk = (x - startX[listType]) * 4; // Adjust the scroll speed here
+    const walk = (x - startX[listType]) * 2; // Adjust the scroll speed here
     ref.current.scrollLeft = scrollLeft[listType] - walk;
   };
 

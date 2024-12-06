@@ -48,3 +48,9 @@ Para obter as imagens dos posters dos filmes, utilize a seguinte URL de base:
 
 https://image.tmdb.org/t/p/w500
 
+## Aplicação em funcionamento
+
+A aplicação pode ser visualizada diretamente em [**LinkedIn - Visualizar o site em funcionamento**](https://www.linkedin.com/posts/mikelly-correia-75b85a203_ol%C3%A1-pessoal-gostaria-de-compartilhar-activity-7212570936443564032-Xtsy?utm_source=share&utm_medium=member_desktop).
+
+
+

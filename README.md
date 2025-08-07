@@ -1,56 +1,57 @@
-# MovieDB
+### MovieDB
 
-## Descrição
+-----
 
-O **MovieDB** é um projeto desenvolvido com o objetivo de explorar a API do **TheMovieDB** e configurar a comunicação entre o front-end e o back-end em um único projeto. O **back-end** é responsável por configurar o servidor, fazer a comunicação com a API do TheMovieDB e fornecer os dados ao **front-end**, que então exibe as informações de filmes de forma estruturada.
+### Description
 
-Este projeto foi desenvolvido utilizando **Typescript**, **React**, **NextJS** no front-end e **Typescript**, **ExpressJS**, **Prisma ORM** no back-end, com um banco de dados relacional para armazenamento de informações de usuários e filmes favoritos.
+**MovieDB** is a project developed to explore the **TheMovieDB** API and configure communication between the front-end and back-end in a single project. The **back-end** is responsible for setting up the server, communicating with the TheMovieDB API, and providing data to the **front-end**, which then displays movie information in a structured way.
 
-## Funcionalidades Implementadas
+This project was built using **Typescript**, **React**, and **NextJS** for the front-end, and **Typescript**, **ExpressJS**, and **Prisma ORM** for the back-end, with a relational database for storing user and favorite movie information.
 
-### Requisitos Obrigatórios
+### Implemented Features
 
-- **Cadastro de Usuário:** O usuário pode criar uma conta.
-- **Login de Usuário:** O usuário pode fazer login para acessar a plataforma.
-- **Página Principal:** Exibição de todos os filmes obtidos da API do TheMovieDB.
-- **Busca por Filme:** Funcionalidade de buscar filmes por nome.
-- **Favoritar Filmes:** O usuário pode favoritar um filme.
-- **Visualizar Favoritos:** O usuário pode ver os filmes que favoritou.
-- **Excluir Favoritos:** O usuário pode remover filmes da sua lista de favoritos.
+#### Mandatory Requirements
 
-### Requisitos Opcionais
+  * **User Registration:** Users can create an account.
+  * **User Login:** Users can log in to access the platform.
+  * **Main Page:** Displays all movies from the TheMovieDB API.
+  * **Movie Search:** Allows users to search for movies by name.
+  * **Favorite Movies:** Users can favorite a movie.
+  * **View Favorites:** Users can see the movies they have favorited.
+  * **Delete Favorites:** Users can remove movies from their favorites list.
 
-- **Filtrar Filmes:** Possibilidade de filtrar filmes por gênero ou por popularidade.
-- **Detalhes do Filme:** O usuário pode acessar detalhes adicionais de um filme na página específica do filme.
+#### Optional Requirements
 
-### Responsividade
+  * **Filter Movies:** Users can filter movies by genre or popularity.
+  * **Movie Details:** Users can access additional details about a specific movie on its dedicated page.
 
-A interface foi projetada para ser completamente **responsiva**, garantindo uma boa experiência de usuário em dispositivos móveis, tablets e desktops.
+#### Responsiveness
 
-## Tecnologias Utilizadas
+The interface was designed to be completely **responsive**, ensuring a good user experience on mobile devices, tablets, and desktops.
 
-- **Front-end:** 
-  - **Typescript**
-  - **React**
-  - **NextJS**
-- **Back-end:**
-  - **Typescript**
-  - **ExpressJS**
-  - **Prisma ORM**
-  - **Banco de Dados Relacional**
-- **API:**
-  - **TheMovieDB API** para buscar filmes e exibir informações relacionadas.
-  - **API Key:** [TheMovieDB API Key](https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1)
+### Technologies Used
 
-## URL de Imagens
+  * **Front-end:**
+      * **Typescript**
+      * **React**
+      * **NextJS**
+  * **Back-end:**
+      * **Typescript**
+      * **ExpressJS**
+      * **Prisma ORM**
+      * **Relational Database**
+  * **API:**
+      * **TheMovieDB API** for fetching movies and displaying related information.
+      * **API Key:** [TheMovieDB API Key](https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1)
 
-Para obter as imagens dos posters dos filmes, utilize a seguinte URL de base:
+### Image URL
 
-https://image.tmdb.org/t/p/w500
+To get movie poster images, use the following base URL:
 
-## Aplicação em funcionamento
+`https://image.tmdb.org/t/p/w500`
 
-A aplicação pode ser visualizada diretamente em [**LinkedIn - Visualizar o site em funcionamento**](https://www.linkedin.com/posts/mikelly-correia-75b85a203_ol%C3%A1-pessoal-gostaria-de-compartilhar-activity-7212570936443564032-Xtsy?utm_source=share&utm_medium=member_desktop).
+### Live Application
 
+The application can be viewed live at [**LinkedIn - View the live site**](https://www.linkedin.com/posts/mikelly-correia-75b85a203_ol%C3%A1-pessoal-gostaria-de-compartilhar-activity-7212570936443564032-Xtsy?utm_source=share&utm_medium=member_desktop).
 
-
+\<img width="1896" height="923" alt="image" src="[https://github.com/user-attachments/assets/43013c9c-f336-4964-8f61-45c031bdae7d](https://github.com/user-attachments/assets/43013c9c-f336-4964-8f61-45c031bdae7d)" /\>

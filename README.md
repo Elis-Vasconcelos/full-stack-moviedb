@@ -54,4 +54,4 @@ To get movie poster images, use the following base URL:
 
 The application can be viewed live at [**LinkedIn - View the live site**](https://www.linkedin.com/posts/mikelly-correia-75b85a203_ol%C3%A1-pessoal-gostaria-de-compartilhar-activity-7212570936443564032-Xtsy?utm_source=share&utm_medium=member_desktop).
 
-\<img width="1896" height="923" alt="image" src="[https://github.com/user-attachments/assets/43013c9c-f336-4964-8f61-45c031bdae7d](https://github.com/user-attachments/assets/43013c9c-f336-4964-8f61-45c031bdae7d)" /\>
+<img width="1896" height="923" alt="image" src="https://github.com/user-attachments/assets/8f8ac7cb-3870-480b-8b4d-5c920a87411b" />
